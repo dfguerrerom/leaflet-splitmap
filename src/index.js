@@ -95,26 +95,30 @@ L.Control.SplitMap = L.Control.extend({
     }
     this._leftLayers.forEach((left_layer)=> {
         if (left_layer.getContainer) {
-            left_layer.getContainer().style.clip = ""
+          left_layer.getContainer().remove()
         }
         else {
-            left_layer.getPane().style.clip = ""
+            left_layer.getPane().remove()
         }
     })
 
     this._rightLayers.forEach((right_layer)=>{
         if (right_layer.getContainer) {
-            right_layer.getContainer().style.clip = ""
+            right_layer.getContainer().remove()
         }
         else {
-            right_layer.getPane().style.clip = ""
+            right_layer.getPane().remove()
         }
     })
     this._removeEvents()
     L.DomUtil.remove(this._container)
     this._map = null
+
+    // print the layers
+
     return this
   },
+  
 
   _updateClip: function () {
     if (!this._map) {
