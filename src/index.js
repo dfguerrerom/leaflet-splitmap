@@ -113,9 +113,6 @@ L.Control.SplitMap = L.Control.extend({
     this._removeEvents()
     L.DomUtil.remove(this._container)
     this._map = null
-
-    // print the layers
-
     return this
   },
   
